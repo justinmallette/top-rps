@@ -9,4 +9,19 @@ ELSE
     Set the computer's choice to "Scissors"
 */
 
+let computerChoice = "Not Yet Set";
 
+function getComputerChoice() {
+    Math.random();
+    if (Math.random() < .34) {
+        computerChoice = "Rock"
+    } else if (Math.random() >= .34 || Math.random() < .67) {
+        computerChoice = "Paper"
+    } else {
+        computerChoice = "Scissors"
+    }
+
+};
+
+getComputerChoice();
+console.log(computerChoice);
