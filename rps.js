@@ -25,3 +25,15 @@ function getComputerChoice() {
 
 getComputerChoice();
 console.log(computerChoice);
+
+
+/* Get Human choice
+
+PROMPT human for a choice between rock, paper, and scissors
+IF human selects rock
+    THEN set the human's choice to "Rock"
+IF human selects paper
+    THEN set the human's choice to "Paper"
+IF human selects scissors
+    THEN set then human's choice to "Scissors"
+*/
