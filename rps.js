@@ -60,6 +60,15 @@ function getHumanChoice() {
 
 console.log(humanChoice);
 
- let humanScore = 0;
- let computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
+function playRound(humanChoice, computerChoice) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    if (humanSelection == "Rock" && computerSelection == "Scissors") || (humanSelection == "Scissors" && computerSelection == "Paper") || (humanSelection == "Paper" && computerSelection == "Rock") {
+        alert("You win!");
+        humanScore ++;
+    }
+ }
