@@ -64,12 +64,17 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    if (humanSelection == "Rock" && computerSelection == "Scissors" || humanSelection == "Scissors" && computerSelection == "Paper" || humanSelection == "Paper" && computerSelection == "Rock") {
-        alert("You win!");
+    if ((humanSelection == "Rock" && computerSelection == "Scissors") || (humanSelection == "Scissors" && computerSelection == "Paper") || (humanSelection == "Paper" && computerSelection == "Rock")) {
+        alert("You win this round! ${humanSelection} beats ${computerSelection}.")
         humanScore ++;
+    } else {
+        alert("Still working on that.")
     }
+}
 
- }
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+console.log(humanChoice, computerChoice);
