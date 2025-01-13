@@ -28,7 +28,6 @@ function getComputerChoice() {
 
 console.log(computerChoice);
 
-
 /* Get Human choice
 
 PROMPT human for a choice between rock, paper, and scissors
@@ -63,18 +62,25 @@ console.log(humanChoice);
 let humanScore = 0;
 let computerScore = 0;
 
+
+
 function playRound(humanChoice, computerChoice) {
     if ((humanSelection == "Rock" && computerSelection == "Scissors") || (humanSelection == "Scissors" && computerSelection == "Paper") || (humanSelection == "Paper" && computerSelection == "Rock")) {
-        alert("You win this round! ${humanSelection} beats ${computerSelection}.")
+        alert(`You win this round! ${humanSelection} beats ${computerSelection}.`);
         humanScore ++;
+
+    } else if ((humanSelection == "Rock" && computerSelection == "Paper") || (humanSelection == "Scissors" && computerSelection == "Rock") || (humanSelection == "Paper" && computerSelection == "Scissors")) {
+        alert(`You lose this round! ${computerSelection} beats ${humanSelection}.`);
+        computerScore ++;
+
     } else {
-        alert("Still working on that.")
+        alert(`You picked the same choice! Play the round again.`);
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+const humanSelection = humanChoice;
+const computerSelection = computerChoice;
 
 playRound(humanSelection, computerSelection);
 
-console.log(humanChoice, computerChoice);
+
