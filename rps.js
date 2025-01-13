@@ -1,86 +1,105 @@
-/* Make Computer choice
-
-CALCULATE a number between 0 and 1
-IF number < .34
-    THEN set the computer's choice to "Rock"
-IF number >= .34 AND < .67
-    THEN set the computer's choice to "Paper"
-ELSE
-    Set the computer's choice to "Scissors"
-*/
-
-let computerChoice = "Not Yet Set";
-
-getComputerChoice();
-
+// Initialize computer choice for RPS round
 
 function getComputerChoice() {
+    let computerChoice;
     Math.random();
     if (Math.random() < .34) {
         computerChoice = "Rock"
-    } else if (Math.random() >= .34 || Math.random() < .67) {
+    } else if (Math.random() < .67) {
         computerChoice = "Paper"
     } else {
         computerChoice = "Scissors"
     }
-
+    return computerChoice
 };
 
-console.log(computerChoice);
-
-/* Get Human choice
-
-PROMPT human for a choice between rock, paper, and scissors
-IF human selects rock
-    THEN set the human's choice to "Rock"
-IF human selects paper
-    THEN set the human's choice to "Paper"
-IF human selects scissors
-    THEN set then human's choice to "Scissors"
-*/
-
-let humanChoice = prompt("Rock, Paper, or Scissors?");
-
-getHumanChoice();
-
+// Initialize human choice for RPS round
 
 function getHumanChoice() {
-    if (humanChoice.toLowerCase() == "rock" ) {
-        humanChoice = "Rock";
-    } else if (humanChoice.toLowerCase() == "paper") {
-        humanChoice = "Paper";
-    } else if (humanChoice.toLowerCase() == "scissors") {
-        humanChoice = "Scissors";
+    let humanChoice = prompt("Rock, Paper, or Scissors?");
+    if (humanChoice.toLowerCase() === "rock" ) {
+        return "Rock";
+    } else if (humanChoice.toLowerCase() === "paper") {
+        return "Paper";
+    } else if (humanChoice.toLowerCase() === "scissors") {
+        return "Scissors";
     } else {
-        humanChoice = prompt("That's not an option. Rock, Paper, or Scissors?");
-        getHumanChoice();
+        return humanChoice;
     }
 }
-
-console.log(humanChoice);
+// Set scores for each player
 
 let humanScore = 0;
 let computerScore = 0;
 
-
+// Play a round of Rock, Paper, Scissors
 
 function playRound(humanChoice, computerChoice) {
-    if ((humanSelection == "Rock" && computerSelection == "Scissors") || (humanSelection == "Scissors" && computerSelection == "Paper") || (humanSelection == "Paper" && computerSelection == "Rock")) {
-        alert(`You win this round! ${humanSelection} beats ${computerSelection}.`);
-        humanScore ++;
+    
+    if (humanChoice == "Rock") {
+        if (computerChoice == "Scissors") {
+            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } else if (computerChoice == "Paper") {
+            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else {
+            console.log(`You picked the same choice! No winners this round.`);
+        }
+    }
 
-    } else if ((humanSelection == "Rock" && computerSelection == "Paper") || (humanSelection == "Scissors" && computerSelection == "Rock") || (humanSelection == "Paper" && computerSelection == "Scissors")) {
-        alert(`You lose this round! ${computerSelection} beats ${humanSelection}.`);
-        computerScore ++;
+    if (humanChoice == "Paper") {
+        if (computerChoice == "Rock") {
+            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } else if (computerChoice == "Scissors") {
+            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else {
+            console.log(`You picked the same choice! No winners this round.`);
+        }
+    }
 
-    } else {
-        alert(`You picked the same choice! Play the round again.`);
+    if (humanChoice == "Scissors") {
+        if (computerChoice == "Paper") {
+            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } else if (computerChoice == "Rock") {
+            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else {
+            console.log(`You picked the same choice! No winners this round.`);
+        }
     }
 }
 
-const humanSelection = humanChoice;
-const computerSelection = computerChoice;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
 
+console.log(`Scores: You - ${humanScore}, Computer - ${computerScore}`);
+
+
+
+
+
+
+
+// function playGame(rounds) {
+
+
+
+//     if (rounds > 0) {
+//         getComputerChoice();
+//         getHumanChoice();
+//         playRound(humanChoice, computerChoice);
+//         playGame(rounds - 1);
+//         playRound(humanSelection, computerSelection);
+//     }
+
+    
+// }
+
+// playGame(5);
