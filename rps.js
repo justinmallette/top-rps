@@ -46,11 +46,11 @@ getHumanChoice();
 
 
 function getHumanChoice() {
-    if (humanChoice === "rock" ) {
+    if (humanChoice.toLowerCase() == "rock" ) {
         humanChoice = "Rock";
-    } else if (humanChoice === "paper") {
+    } else if (humanChoice.toLowerCase() == "paper") {
         humanChoice = "Paper";
-    } else if (humanChoice === "scissors") {
+    } else if (humanChoice.toLowerCase() == "scissors") {
         humanChoice = "Scissors";
     } else {
         humanChoice = prompt("That's not an option. Rock, Paper, or Scissors?");
@@ -63,4 +63,3 @@ console.log(humanChoice);
  let humanScore = 0;
  let computerScore = 0;
 
- 
