@@ -11,6 +11,9 @@ ELSE
 
 let computerChoice = "Not Yet Set";
 
+getComputerChoice();
+
+
 function getComputerChoice() {
     Math.random();
     if (Math.random() < .34) {
@@ -23,7 +26,6 @@ function getComputerChoice() {
 
 };
 
-getComputerChoice();
 console.log(computerChoice);
 
 
@@ -37,3 +39,23 @@ IF human selects paper
 IF human selects scissors
     THEN set then human's choice to "Scissors"
 */
+
+let humanChoice = prompt("Rock, Paper, or Scissors?");
+
+getHumanChoice();
+
+
+function getHumanChoice() {
+    if (humanChoice === "rock" ) {
+        humanChoice = "Rock";
+    } else if (humanChoice === "paper") {
+        humanChoice = "Paper";
+    } else if (humanChoice === "scissors") {
+        humanChoice = "Scissors";
+    } else {
+        humanChoice = prompt("That's not an option. Rock, Paper, or Scissors?");
+        getHumanChoice();
+    }
+}
+
+console.log(humanChoice);
