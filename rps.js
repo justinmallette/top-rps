@@ -28,14 +28,16 @@ function getHumanChoice() {
     }
 }
 
+// Set scores for each player
+
+let humanScore = 0;
+let computerScore = 0;
+
 // Win condition logic for each round
 
 function playGame() {
 
-    // Set scores for each player
 
-    let humanScore = 0;
-    let computerScore = 0;
 
     // Play a round of Rock, Paper, Scissors
 
@@ -44,10 +46,10 @@ function playGame() {
         if (humanChoice == "Rock") {
             if (computerChoice == "Scissors") {
                 console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-                humanScore++;
+                humanScore += 1;
             } else if (computerChoice == "Paper") {
                 console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-                computerScore++;
+                computerScore += 1;
             } else {
                 console.log(`You picked the same choice! No winners this round.`);
             }
@@ -56,10 +58,10 @@ function playGame() {
         if (humanChoice == "Paper") {
             if (computerChoice == "Rock") {
                 console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-                humanScore++;
+                humanScore += 1;
             } else if (computerChoice == "Scissors") {
                 console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-                computerScore++;
+                computerScore += 1;
             } else {
                 console.log(`You picked the same choice! No winners this round.`);
             }
@@ -68,10 +70,10 @@ function playGame() {
         if (humanChoice == "Scissors") {
             if (computerChoice == "Paper") {
                 console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-                humanScore++;
+                humanScore += 1;
             } else if (computerChoice == "Rock") {
                 console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-                computerScore++;
+                computerScore += 1;
             } else {
                 console.log(`You picked the same choice! No winners this round.`);
             }
@@ -93,3 +95,11 @@ function playGame() {
 // Play multiple rounds
 
 for (let i = 0; i < 5; i++) playGame(i);
+
+if (humanScore > computerScore) {
+    console.log(`You won with a score of ${humanScore}! Congrats! Refresh the page to play again.`)
+} else if (humanScore < computerScore) {
+    console.log(`The computer won with a score of ${computerScore}! Refresh the page to play again.`)
+} else {
+    console.log(`You tied with scores of ${humanScore}! Refresh the page to play again.`)
+}
