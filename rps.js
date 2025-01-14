@@ -27,79 +27,69 @@ function getHumanChoice() {
         return humanChoice;
     }
 }
-// Set scores for each player
 
-let humanScore = 0;
-let computerScore = 0;
+// Win condition logic for each round
 
-// Play a round of Rock, Paper, Scissors
+function playGame() {
 
-function playRound(humanChoice, computerChoice) {
+    // Set scores for each player
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    // Play a round of Rock, Paper, Scissors
+
+    function playRound(humanChoice, computerChoice) {
+        
+        if (humanChoice == "Rock") {
+            if (computerChoice == "Scissors") {
+                console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+                humanScore++;
+            } else if (computerChoice == "Paper") {
+                console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+                computerScore++;
+            } else {
+                console.log(`You picked the same choice! No winners this round.`);
+            }
+        }
+
+        if (humanChoice == "Paper") {
+            if (computerChoice == "Rock") {
+                console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+                humanScore++;
+            } else if (computerChoice == "Scissors") {
+                console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+                computerScore++;
+            } else {
+                console.log(`You picked the same choice! No winners this round.`);
+            }
+        }
+
+        if (humanChoice == "Scissors") {
+            if (computerChoice == "Paper") {
+                console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+                humanScore++;
+            } else if (computerChoice == "Rock") {
+                console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+                computerScore++;
+            } else {
+                console.log(`You picked the same choice! No winners this round.`);
+            }
+        }
+    }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+
+
+    console.log(`Scores: You - ${humanScore}, Computer - ${computerScore}`);
+
+
     
-    if (humanChoice == "Rock") {
-        if (computerChoice == "Scissors") {
-            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-            humanScore++;
-        } else if (computerChoice == "Paper") {
-            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-            computerScore++;
-        } else {
-            console.log(`You picked the same choice! No winners this round.`);
-        }
-    }
-
-    if (humanChoice == "Paper") {
-        if (computerChoice == "Rock") {
-            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-            humanScore++;
-        } else if (computerChoice == "Scissors") {
-            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-            computerScore++;
-        } else {
-            console.log(`You picked the same choice! No winners this round.`);
-        }
-    }
-
-    if (humanChoice == "Scissors") {
-        if (computerChoice == "Paper") {
-            console.log(`You win this round! ${humanChoice} beats ${computerChoice}.`);
-            humanScore++;
-        } else if (computerChoice == "Rock") {
-            console.log(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
-            computerScore++;
-        } else {
-            console.log(`You picked the same choice! No winners this round.`);
-        }
-    }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// Play multiple rounds
 
-playRound(humanSelection, computerSelection);
-
-
-console.log(`Scores: You - ${humanScore}, Computer - ${computerScore}`);
-
-
-
-
-
-
-
-// function playGame(rounds) {
-
-
-
-//     if (rounds > 0) {
-//         getComputerChoice();
-//         getHumanChoice();
-//         playRound(humanChoice, computerChoice);
-//         playGame(rounds - 1);
-//         playRound(humanSelection, computerSelection);
-//     }
-
-    
-// }
-
-// playGame(5);
+for (let i = 0; i < 5; i++) playGame(i);
